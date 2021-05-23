@@ -40,12 +40,19 @@ class TestStringMethods(unittest.TestCase):
     def test_checkLeap(self):
         leapBool = checkLeap(2000)
         self.assertTrue(leapBool)  # Pass
+    
+    def test_getUserInp(self):
+        userInput = getUserInp()
+        self.assertTrue(type(userInput), int)  # Pass
 
+def pytest_getUserInp():
+    userInput = getUserInp()
+    assert type(userInput) == int is True  # Pass
 
-def pytest_palin():
+def pytest_checkLeap():
     leapBool = checkLeap(2000)
     assert leapBool is True  # Pass
 
 if __name__ == '__main__':
-    pytest_palin()
+    pytest_checkLeap()
     unittest.main()
